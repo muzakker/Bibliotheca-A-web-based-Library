@@ -1,1 +1,1 @@
-# Bibliotheca an online library management system with integrated learning facilities.
+# Bibliotheca: an online library management system with integrated learning facilities.

@@ -1,5 +1,5 @@
 <?php
-	$title = "Sign in";
+	$title = "Forgot Password";
 	include('header.php');
 ?>
 
@@ -32,22 +32,16 @@
 <div  style="background-image: url('../assets/library.jpg'); background-size: cover; background-position: center; height: 580px; width: 100%; display:block; text-align: center; align-items:center;">
     <hr>
     
-        <form method="post" action="../controller/signinCheck.php" style="position: absolute; margin: 20px; max-width: 300px; padding: 16px; background-color: white; display: inline-block; margin-left: -10%; margin-right: -10%; text-align: left;">
-            <h1>Login</h1>
+        <form method="post" action="#" style="position: absolute; margin: 20px; max-width: 300px; padding: 16px; background-color: white; display: inline-block; margin-left: -10%; margin-right: -10%; text-align: left;">
+            <h1>Forgot Password</h1>
 
-            <b id="Uname" >Username</b>
-            <input type="text" name="username" id="Username" onblur="getName()" placeholder="Enter Username"  required style="width: 270px; padding: 15px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
-
-            <b>Password</b>
-            <input type="password" placeholder="Enter Password" name="password" required style="width: 270px; padding: 15px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
+            <b>Email</b>
+            <input type="email" placeholder="Enter Your Email" name="email" required style="width: 270px; padding: 15px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
 
             <br>
-            <input type="submit" name="submit" value="Sign in" style="background-color: #4CAF50; color: white; padding: 16px 20px; border: none; cursor: pointer; width: 100%; opacity: 0.9;">
+            <input type="submit" name="submit" value="Submit" style="background-color: #4CAF50; color: white; padding: 16px 20px; border: none; cursor: pointer; width: 100%; opacity: 0.9;">
             
             <br>
-            &nbsp; &nbsp;<a href="signup.php">Not a User? Signup</a>
-            &nbsp; &nbsp; &nbsp;
-            <a href="forgotPass.php">Forgot Password?</a>
         </form>
     
 </div>

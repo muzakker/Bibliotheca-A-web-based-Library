@@ -1,9 +1,12 @@
 <?php
-    if(isset($_COOKIE['status'])){
+    session_start();
+    if(isset($_SESSION['status'])){
 ?>
+
 <?php
-    $title = "Admin Home";
+    $title = "User Home";
     include('header.php');
+    require_once('../model/userModel.php');
 ?>
 <!-- upper navigation bar -->
 <?php include('userNav.php');?>
@@ -20,6 +23,11 @@
         <span style="color: black; font-size: 40px">
             Welcome to Bibliotheca
             <br>
+            <?php
+                $username = $_COOKIE['username'];
+                $row = getUserByName($username);
+                echo $row['fullname'];
+            ?>
         </span>
         <br><br><br>
         <img src="../assets/library.jpg" alt="library" height=350px" width="600px">

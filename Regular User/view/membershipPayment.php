@@ -2,14 +2,6 @@
     session_start();
   if(isset($_SESSION['status'])){
 ?>
-
-<?php
-    $title = "User Home";
-    include('header.php');
-    require_once('../model/bookModel.php');
-    $bookID = $_GET['bookID'];
-    $List = getBookByID($bookID);
-?>
 <!-- upper navigation bar -->
 <?php include('userNav.php');?>
 <!-- main_content -->
@@ -20,22 +12,19 @@
 
     <!-- main panel -->
    <div id="side_panel" style="width: 930px; background-color:#caefff; font-family:Arial;" align="center">
-    <form method="post" action="../controller/paymentCheck.php">
+    <form method="post" action="../controller/membershipPaymentCheck.php">
         <fieldset>
             <h3>Payment</h3>
              <div>
   <div>
     <div>
-      <form action="../controller/paymentCheck.php">
+      <form action="/action_page.php">
 
         <div>
           <div>
-            <label>Book Name:</label>
-            <input type="text" name="bookName" id="bookName" value=<?php echo $List['bookname'];?>><br><br>
-            <label>Cost = </label>
-            <input type="text" name="cost" id="cost" value=<?php echo $List['price'];?>><br><br>
+            <h3>cost = 200 Taka</h3>
             <label></i> Full Name</label>
-            <input type="text" name="Fname" placeholder="Jasun"><br><br>
+            <input type="text" name="name" placeholder="Jasun"><br><br>
             <label></i> Email</label>
             <input type="text" name="email" placeholder="jasun266@gmail.com"><br><br>
             <label></i> Address</label>

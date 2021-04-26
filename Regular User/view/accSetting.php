@@ -1,5 +1,6 @@
 <?php
-	if(isset($_COOKIE['status'])){
+	session_start();
+    if(isset($_SESSION['status'])){
 ?>
 
 <?php
@@ -23,7 +24,7 @@
         <hr><br><br>
 
         
-            <form method="post" action="#">
+            <form method="post" action="../controller/accSettingCheck.php" enctype="multipart/form-data">
                 <table align="center">
                     <tr>
                         <td>

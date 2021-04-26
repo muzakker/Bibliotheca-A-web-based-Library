@@ -1,5 +1,6 @@
 <?php
-    if(isset($_COOKIE['status'])){
+    session_start();
+    if(isset($_SESSION['status'])){
 ?>
 <?php
     $title = "Admin Home";
@@ -14,35 +15,24 @@
     <?php include('userSidepanel.php');?>
 
     <!-- main panel -->
-   <div id="side_panel" style="width: 930px; background-color:#caefff; font-family:Arial;" align="center">
-    <form class="requestForm">
-        <fieldset>
-            <h3>Review a Book</h3>
-                <div class="formInput">
-                    <input type="text" name="rbookName"  required autofocus placeholder="Book-Name" required style="width: 270px; padding: 15px; margin: 5px 0 22px 0;">
-                </div><br>
+            <div id="side_panel" style="width: 930px; background-color:#caefff; font-family:Arial;" align="center">
+    
+            <form method="post" action="../controller/reviewCheck.php" style="position: absolute; margin: 20px; max-width: 300px; padding: 16px; background-color: white; display: inline-block; margin-left: -10%; margin-right: -10%; text-align: left;">
+            <h1>Review a Book</h1>
 
-                <div class="formInput">
-                    <input type="text" name="rauthorName" required autofocus placeholder="Author-Name" required style="width: 270px; padding: 15px; margin: 5px 0 22px 0;">
-                </div><br>
-                <div class="formInput">
-                    <textarea cols="50" rows="5" name="rdescription" placeholder="Description"></textarea>
-                </div><br>
-                <div>
-                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                         Rating
-                         &nbsp; &nbsp;
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                </div><br>
-                    <input type="submit" name="bookRequestBtn" value="Request" class="btnLogin">
-                    <br >
-                </fieldset>
-            </form>
+            <b id="rbn">Book Name</b>
+            <input type="text" name="rbookName" id="rbookName" onblur="ValidateReviewBookName()" placeholder="Enter Book Name"  required style="width: 270px; padding: 15px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
+
+            <b id="atn">Author-Name</b>
+            <input type="text" name="rauthorName" id="rAuthorName" onblur="ValidateAuthorName()" placeholder="Author-Name"  required style="width: 270px; padding: 15px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
+
+            <b>Write Something about he book</b>
+            <textarea cols="37" rows="7" name="rdescription" placeholder="Description"></textarea>
+    
+            <br>
+            <input type="submit" name="submit" value="submit" style="background-color: #4CAF50; color: white; padding: 16px 20px; border: none; cursor: pointer; width: 100%; opacity: 0.9;">
+        </form>
     </div>
 </div>
-    
+ <script src="./check_js.js"></script>    
 <?php }else{include('footer.html');}?>

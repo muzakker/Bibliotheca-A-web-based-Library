@@ -1,12 +1,12 @@
 <?php
     if(isset($_COOKIE['status'])){
 ?>
-
 <?php
-    $title = "View Books";
+    $title = "Book Details";
     include('header.php');
     require_once('../model/bookModel.php');
-    $bookList = getAllBook();
+    $bookID = $_GET['bookID'];
+    $book = getBookByID($bookID);
 ?>
 
 <?php include('userNav.php')?>
@@ -46,22 +46,19 @@
                 <th style="border: 1px solid #cecfd5; padding: 10px 15px;"> Buy</th>
             </tr>
 
-            <?php for($i = 0; $i < count($bookList); $i++){ ?>
+            <?php for($i = 0; $i < count($book); $i++){ ?>
             <tr>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> <?=$bookList[$i]['bookID']?> </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> <?=$bookList[$i]['bookname']?> </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> <?=$bookList[$i]['category']?> </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> <?=$bookList[$i]['author']?> </td>
+                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> <?=$book[$i]['bookID']?> </td>
+                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> <?=$book[$i]['bookname']?> </td>
+                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> <?=$book[$i]['category']?> </td>
+                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> <?=$book[$i]['author']?> </td>
                 <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> <?=$bookList[$i]['published']?> </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> <?=$bookList[$i]['price']?> </td>
+                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> <?=$book[$i]['price']?> </td>
                 <td style="border: 1px solid #cecfd5; padding: 10px 15px;">
-                    <a href="bookDetails.php?bookID=<?=$bookList[$i]['bookID']?>">Details</a>
+                    <a href="bookDetails.php?bookID=<?=$book[$i]['bookID']?>">Details</a>
                 </td>
                 <td style="border: 1px solid #cecfd5; padding: 10px 15px;">
-                <a href="payment.php?bookID=<?=$bookList[$i]['bookID']?>">Buy this book </a>
-                </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;">
-                <a href="WishList.php?bookID=<?=$bookList[$i]['bookID']?>">Add to Wish List </a>
+                <a href="payment.php?bookID=<?=$book[$i]['bookID']?>">Buy this book </a>
                 </td>
             </tr>
             <?php } ?>

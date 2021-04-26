@@ -1,8 +1,12 @@
-<?php
-	$title = "Signup";
-	include('header.php');
-?>
+<!DOCTYPE html>
+<html>
 
+<head>
+    <title>Signup</title>
+    <script src="https://kit.fontawesome.com/d4036902fd.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
 <!-- nav bar -->
 <div id="nav_bar" style="background-color:#caefff; height: 100px; width: 100%; font-family: arial; display: flex; align-items: center; text-align: center;">
             
@@ -37,17 +41,17 @@
 <div  style="background-image: url('../assets/library.jpg'); background-size: cover; background-position: center; height: 980px; width: 100%; display:block; text-align: center; align-items:center;">
     <hr>
     
-        <form method="post" action="../controller/signupCheck.php" enctype="multipart/form-data" style="position: absolute; margin: 20px; max-width: 300px; padding: 16px; background-color: white; display: inline-block; margin-left: -10%; margin-right: -10%; text-align: left;">
-            <h1>Signup</h1>
+        <form id="signupForm" name="signupForm" method="post" action="../controller/signupCheck.php" enctype="multipart/form-data" style="position: absolute; margin: 20px; max-width: 300px; padding: 16px; background-color: white; display: inline-block; margin-left: -10%; margin-right: -10%; text-align: left;">
+            <h1 id="signup">Signup</h1>
 
-            <b>Username</b>
-            <input type="text" placeholder="Enter Username" name="username" required style="width: 270px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
+            <b id="Uname" >Username</b>
+            <input type="text" name="username" id="Username" onblur="getName()" placeholder="Enter Username"  required style="width: 270px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
 
-            <b>Full Name</b>
-            <input type="text" placeholder="Enter Your Full Name" name="name" required style="width: 270px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
+            <b id="Fname">Full Name</b>
+            <input type="text" name="name" id="FullName" onblur="getFullName()"  placeholder="Enter Your Full Name"  required style="width: 270px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
 
-            <b>Email</b>
-            <input type="email" placeholder="hint: xyz@gmail.com" name="email" required style="width: 270px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
+            <b id="e">Email</b>
+            <input type="text" name="email" id="email" onblur="ValidateEmail()" placeholder="hint: xyz@gmail.com" required style="width: 270px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
 
             <b>Select Gender</b><br>
             <input type="radio" name="gender" value="male" style="width: 30px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;"> Male
@@ -55,7 +59,7 @@
             <input type="radio" name="gender" value="other"  style="width: 30px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;"> Other <br>
 
             <b>Date of Birth</b><br>
-            <input type="number" name="dd" value="" required style="width: 30px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;"> / <input type="number" name="mm" required style="width: 30px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;" value="">	/ <input type="number" name="yyyy" required style="width: 50px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;" value=""> <i>(dd/mm/yyyy)</i>
+            <input id="DOB" type="number" name="dd" value="" required style="width: 30px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;"> / <input type="number" name="mm" required style="width: 30px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;" value="">	/ <input type="number" name="yyyy" required style="width: 50px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;" value=""> <i>(dd/mm/yyyy)</i>
             
 
             <b>Select User Type</b>
@@ -67,16 +71,16 @@
             <b>Choose a Picture</b>
             <input type="file" name="picture" required style="width: 270px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
 
-            <b>Password</b>
-            <input type="password" placeholder="Enter Password" name="password" required style="width: 270px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
+            <b id="p">Password</b>
+            <input type="password" name="password" id="pass" onblur="Validatepasswoed()" placeholder="Enter Password" required style="width: 270px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
 
             <b>Confirm Password</b>
-            <input type="password" placeholder="Enter Password" name="confirmPassword" required style="width: 270px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
+            <input type="password" name="confirmPassword" id="cpass" placeholder="Enter Password" required style="width: 270px; padding: 10px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
 
             <br>
-            <input type="submit" name="submit" value="Submit" style="background-color: #4CAF50; color: white; padding: 16px 20px; border: none; cursor: pointer; width: 100%; opacity: 0.9;">
+            <input id="submit" type="submit" name="submit" value="Submit" style="background-color: #4CAF50; color: white; padding: 16px 20px; border: none; cursor: pointer; width: 100%; opacity: 0.9;">
         </form>
-    
 </div>
-
-<?php include('footer.html')?>
+    <script type="text/javascript" src="../assets/js/signupCheck.js"></script>
+</body>
+<?php include('footer.html') ?>

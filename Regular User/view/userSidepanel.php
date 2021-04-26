@@ -1,8 +1,15 @@
-<?php include('../controller/json_read.php'); ?>
+    
+
+    <?php require_once('../model/userModel.php'); 
+    $username = $_COOKIE['username'];
+    $row = getUserByName($username); ?>
+
+    
 <!-- side panel -->
     <div id="side_panel" style="width: 300px; background-color:#caefff; font-family:Arial;" align="center">
-        <h2><?php echo $json[$_COOKIE["id"]]['username']?></h2><a href="accSetting.php">
-            <img src="../assets/<?php echo $json[$_COOKIE["id"]]['fileName'];?>" height="150px;" width="150px" alt="Profile Photo" style="border-radius:50%">
+        <h2><?php echo $_COOKIE['username']?></h2>
+        <a href="accSetting.php">
+            <img src="../assets/<?php echo $row['filename'];?>" height="150px;" width="150px" alt="Profile Photo" style="border-radius:50%">
         </a>
         <br> <br> <br>
 
@@ -38,7 +45,7 @@
 
         <hr><br>
         <!-- Payment  -->
-        <a href="payment.php" style="text-decoration: none;">
+        <a href="membershipPayment.php" style="text-decoration: none;">
             <span style="font-size:25px">Premium Membership</span>
         </a>
 

@@ -1,5 +1,6 @@
 <?php
-    if(isset($_COOKIE['status'])){
+    session_start();
+    if(isset($_SESSION['status'])){
 ?>
 <?php
 	$title = "Admin Home";

@@ -1,13 +1,12 @@
 <?php
-    if(isset($_COOKIE['status'])){
+	if(isset($_COOKIE['status'])){
 ?>
-
 <?php
-    $title = "User Profile";
-    include('header.php');
-    require_once('../model/userModel.php');
-    $username = $_COOKIE['username'];
-    $row = getUserByName($username);
+	$title = "Book Details";
+	include('header.php');
+    require_once('../model/bookModel.php');
+    $bookID = $_GET['bookID'];
+    $book = getBookByID($bookID);
 ?>
 
 <?php include('userNav.php')?>
@@ -21,89 +20,84 @@
     <div id="main_content" style="background-color: white; width: 1210px; font-family: arial; align-items: center; text-align: center;">
         <!-- title -->
         <span style="font-size: 30px;">
-            <b> My Profile </b>
+            <b> <?=$book['bookname']?> </b>
         </span>
-        <hr><br>
+        <hr>
 
         <!-- picture -->
-        <img src="../assets/<?php echo $row['filename'];?>" alt="muzakker" height="200px" width="200px" style="border-radius: 50%">
-
-        <br><br><hr>
-        <span style="font-size: 25px;"><b><?=$row['username']?>'s information</b></span>
+        <img src="../assets/<?php echo $book['filename'];?>" alt="<?=$book['bookname']?>" height="300px" width="250px">
         <br><br>
 
-        <table align="center" border="1">
+        <!-- Information -->
+        <table align="center">
             <tr>
                 <td>
-                    <b>Username</b>
+                    <b>Book ID</b>
                 </td>
 
                 <td>
-                    <?php echo $row['username'];?>
+                    <?=$book['bookID']?>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <b>Name</b>
+                    <b>Book Name</b>
                 </td>
 
                 <td>
-                    <?php echo $row['fullname'];?>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <b>User Type</b>
-                </td>
-
-                <td>
-                    <?php echo $row['type'];?>
+                    <?=$book['bookname']?>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <b>Email</b>
+                    <b>Author</b>
                 </td>
 
                 <td>
-                    <?php echo $row['email'];?>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <b>Gender</b>
-                </td>
-
-                <td>
-                    <?php echo $row['gender'];?>
+                    <?=$book['author']?>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <b>Date of Birth</b>
+                    <b>Category</b>
                 </td>
 
                 <td>
-                    <?php echo $row['dob'];?>
+                    <?=$book['category']?>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b>Published Date</b>
+                </td>
+
+                <td>
+                    <?=$book['published']?>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b>Price</b>
+                </td>
+
+                <td>
+                    <?=$book['price']?> Taka
                 </td>
             </tr>
         </table>
-        <br><br>
-        <a href="accSetting.php">Change Account Info</a> ||
-        <a href="changePass.php">Change Password</a>
-    </div>
+        <hr>
         
+    </div>
 </div>
 
 <?php include('footer.html')?>
-
 <?php
-    }else{
-        header('location: signin.php');
-    }
+	}else{
+		header('location: signin.php');
+	}
 ?>

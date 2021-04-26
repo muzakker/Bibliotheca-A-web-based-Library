@@ -34,5 +34,5 @@
         </form>
     </div>
 </div>
- <script src="./check_js.js"></script>    
+ <script src="../assets/js/check_js.js"></script>    
 <?php }else{include('footer.html');}?>

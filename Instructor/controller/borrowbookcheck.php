@@ -1,6 +1,6 @@
 <?php
 
-	require_once('model/borrowbookmodel.php');
+	require_once('../../model/borrowbookmodel.php');
 
 	if(isset($_POST['submit'])){
 
@@ -35,7 +35,7 @@
                 $status = insertborrowlist($borrowlist);
 
                 if($status){
-                    header('location: borrowlist.php');
+                    header('location: ../view/borrowlist.php');
 
                 }else{
                     echo "Database Error! Try again.";

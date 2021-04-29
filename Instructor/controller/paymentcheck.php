@@ -1,6 +1,6 @@
 <?php
 
-	require_once('model/paymentModel.php');
+	require_once('../../model/paymentModel.php');
 
 	if(isset($_POST['submit'])){
 
@@ -47,7 +47,7 @@
                 $status = insertPayment($payment);
 
                 if($status){
-                    header('location: payment.php');
+                    header('location: ../view/payment.php');
 
                 }else{
                     echo "Database Error! Try again.";

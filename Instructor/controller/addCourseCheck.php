@@ -1,6 +1,6 @@
 <?php
 
-	require_once('model/coursemodel.php');
+	require_once('../../model/coursemodel.php');
 
 	if(isset($_POST['submit'])){
 
@@ -44,7 +44,7 @@
                 $status = insertCourse($course);
 
                 if($status){
-                    header('location: course.php');
+                    header('location: ../view/course.php');
 
                 }else{
                     echo "Database Error! Try again.";

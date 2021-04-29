@@ -5,6 +5,9 @@
 <?php
 	$title = "User Profile";
 	include('header.php');
+    require_once('../../model/userModel.php');
+    $username = $_COOKIE['username'];
+    $row = getUserByName($username);
 ?>
 
 <?php include('adminNav.php')?>
@@ -22,15 +25,16 @@
         </span>
         <hr><br><br>
 
+        <script type="text/javascript" src="../assets/js/accSettingCheck.js"></script>
         
-            <form method="post" action="#">
+            <form id="accForm" method="post" onsubmit="return validationAccSetting()" action="../controller/accSettingCheck.php" enctype="multipart/form-data">
                 <table align="center">
                     <tr>
                         <td>
                             Name
                         </td>
                         <td>
-                            <input type="text" name="name" value=""> &nbsp; &nbsp;
+                            <input type="text" name="name" value="<?=$row['fullname']?>"> &nbsp; &nbsp;
                         </td>
                     </tr>
                     
@@ -45,7 +49,7 @@
                             Email
                         </td>
                         <td>
-                            <input type="email" name="email" value=""> 
+                            <input type="email" name="email" value="<?=$row['email']?>"> 
                             <button title="hint: sample@example.com" style="color: blue; font-size: 14px;"><b>i</b></button>
                         </td>
                     </tr>
@@ -74,10 +78,17 @@
                     </tr>
                     
                     <tr>
+                        <?php 
+                            $str=$row['dob'];
+                            $dob=explode("-", $str);
+                            $day=$dob[2];
+                            $month=$dob[1];
+                            $year=$dob[0]; 
+                        ?>
                         <td colspan="2">
                             <fieldset>
                             <legend>Date of Birth</legend>
-                            <input type="number" name="dd" style="width:40px;" value=""> / <input type="number" name="mm" style="width:40px;" value="">	/ <input type="number" name="yyyy" style="width:60px;" value=""> <i>(dd/mm/yyyy)</i>
+                            <input type="number" name="dd" style="width:40px;" value="<?=$day?>"> / <input type="number" name="mm" style="width:40px;" value="<?=$month?>">	/ <input type="number" name="yyyy" style="width:60px;" value="<?=$year?>"> <i>(dd/mm/yyyy)</i>
                         </td>
                     </tr>
                     
@@ -91,7 +102,7 @@
 						<td colspan="2">
                             <fieldset>
                                 <legend>Change Profile Picture</legend>
-                                <input type="file" name="picture" value="">
+                                <input type="file" name="picture" value="<?=$row['filename']?>">
                             </fieldset>
                         </td>
                     

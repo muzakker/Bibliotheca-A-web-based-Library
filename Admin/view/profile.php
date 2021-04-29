@@ -5,6 +5,9 @@
 <?php
 	$title = "User Profile";
 	include('header.php');
+    require_once('../../model/userModel.php');
+    $username = $_COOKIE['username'];
+    $row = getUserByName($username);
 ?>
 
 <?php include('adminNav.php')?>
@@ -23,29 +26,78 @@
         <hr><br>
 
         <!-- picture -->
-        <img src="../assets/muzakker.png" alt="muzakker" height="200px" width="200px" style="border-radius: 50%">
-        <br>
-        <a href="accSetting.php">Change</a>
+        <img src="../assets/images/<?php echo $row['filename'];?>" alt="<?=$row['username']?>" height="200px" width="200px" style="border-radius: 50%">
 
+        <br><br><hr>
+        <span style="font-size: 25px;"><b><?=$row['username']?>'s information</b></span>
         <br><br>
-        <span style="font-size: 20px;"><u>Username</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>
-        
-        <br>
-        <span style="font-size: 20px;"><u>Name</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>
 
-        <br>
-        <span style="font-size: 20px;"><u>User Type</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>
+        <table align="center" border="1">
+            <tr>
+                <td>
+                    <b>Username</b>
+                </td>
 
-        <br>
-        <span style="font-size: 20px;"><u>Email</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>
-        
-        <br>
-        <span style="font-size: 20px;"><u>Gender</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>
-        
-        <br>
-        <span style="font-size: 20px;"><u>Date of Birth</u>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>
-                
+                <td>
+                    <?php echo $row['username'];?>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b>Name</b>
+                </td>
+
+                <td>
+                    <?php echo $row['fullname'];?>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b>User Type</b>
+                </td>
+
+                <td>
+                    <?php echo $row['type'];?>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b>Email</b>
+                </td>
+
+                <td>
+                    <?php echo $row['email'];?>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b>Gender</b>
+                </td>
+
+                <td>
+                    <?php echo $row['gender'];?>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b>Date of Birth</b>
+                </td>
+
+                <td>
+                    <?php echo $row['dob'];?>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <a href="accSetting.php"><b style="font-size: 20px;">Change Account Info</b></a> <b style="font-size: 20px;">||</b>
+        <a href="changePass.php"><b style="font-size: 20px;">Change Password</b></a>
     </div>
+        
 </div>
 
 <?php include('footer.html')?>

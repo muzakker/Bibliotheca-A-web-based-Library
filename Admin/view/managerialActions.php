@@ -5,6 +5,8 @@
 <?php
 	$title = "Managerial Actions";
 	include('header.php');
+    require_once('../../model/userModel.php');
+    $usersList = getAllUser();
 ?>
 
 <?php include('adminNav.php')?>
@@ -22,9 +24,12 @@
         </span>
         <hr><br>
 
+        <script type="text/javascript" src="../assets/js/searchUser.js"></script>
         <!-- search box -->
-        <input type="text" placeholder="Search users..." style="font-size: 20px;">
-        <button type="submit"><i class="fa fa-search" style="font-size: 20px;"></i></button>
+        <input type="text" id="searchUser" onkeyup="searchUser()" placeholder="Search users..." style="font-size: 20px;">
+        
+        <button type="button" onclick="searchUser()"><i class="fa fa-search" style="font-size: 20px;"></i></button>
+        <p id="result" align="center"></p>
         <hr><br><br>
         
         <!-- table for user list -->
@@ -34,81 +39,44 @@
             <tr>
                 <th style="border: 1px solid #cecfd5; padding: 10px 15px;"> # </th>
                 <th style="border: 1px solid #cecfd5; padding: 10px 15px;"> Username </th>
-                <th style="border: 1px solid #cecfd5; padding: 10px 15px;"> Name </th>
+                <th style="border: 1px solid #cecfd5; padding: 10px 15px;"> Full Name </th>
+                <th style="border: 1px solid #cecfd5; padding: 10px 15px;"> Gender </th>
                 <th style="border: 1px solid #cecfd5; padding: 10px 15px;"> Email </th>
                 <th style="border: 1px solid #cecfd5; padding: 10px 15px;"> Date of Birth </th>
                 <th style="border: 1px solid #cecfd5; padding: 10px 15px;"> User Type </th>
+                <th style="border: 1px solid #cecfd5; padding: 10px 15px;"> Actions </th>
             </tr>
 
+            <?php for($i = 0; $i < count($usersList); $i++){ ?>
             <tr>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> 1 </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> abc </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> Mr. ABC </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> abc@gmail.com </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> 01/01/1997 </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> Regular </td>
+                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> <?=$usersList[$i]['id']?> </td>
+                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> <?=$usersList[$i]['username']?> </td>
+                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> <?=$usersList[$i]['fullname']?> </td>
+                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> <?=$usersList[$i]['gender']?> </td>
+                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> <?=$usersList[$i]['email']?> </td>
+                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> <?=$usersList[$i]['dob']?> </td>
+                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> <?=$usersList[$i]['type']?> </td>
+                <td style="border: 1px solid #cecfd5; padding: 10px 15px;">
+                    <a href="editUser.php?username=<?=$usersList[$i]['username']?>"> Edit</a> | 
+				    <a href="../controller/removeUser.php?username=<?=$usersList[$i]['username']?>"> Remove </a>
+                </td>
             </tr>
-
-            <tr>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> 2 </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> xyz </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> Mr. XYZ </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> xyz@gmail.com </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> 01/02/1998 </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> Premium </td>
-            </tr>
-
-            <tr>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> 3 </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> saif </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> Mr. Saif </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> saif@outlook.com </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> 02/02/1990 </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> Instructor </td>
-            </tr>
-
-            <tr>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> 4 </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> rafid </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> Mr. Rafid </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> rafid@yahoo.com </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> 03/03/2000 </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> Regular </td>
-            </tr>
-
-            <tr>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> 5 </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> rasheeq </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> Mr. Rasheeq </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> rasheeq@gmail.com </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> 05/05/2001 </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> Premium </td>
-            </tr>
-
-            <tr>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> 6 </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> ashiq </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> Mr. Ashiq </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> ashiq@outlook.com </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> 10/01/1998 </td>
-                <td style="border: 1px solid #cecfd5; padding: 10px 15px;"> Regular </td>
-            </tr>
-
+            <?php } ?>
         </table>
-        <br>
+        <hr><br>
 
-        <!-- upgrade user -->
-        <a href="upgradeUsers.php" style="text-decoration: none;">
-            <span style="font-size: 20px; background-color: #caefff; border: none; color: black; padding: 10px 10px; border-radius: 10px;"><b> Upgrade/Downgrade </b></span>
+        <!-- upgrade request -->
+        <a href="upgradeRequest.php" style="text-decoration: none;">
+            <span style="font-size: 20px; background-color: #caefff; border: none; color: black; padding: 10px 10px; border-radius: 10px;"><b> Upgrade Requests </b></span>
         </a>
 
-        &nbsp;
+        <!-- &nbsp; -->
         <!-- block/unblock user -->
-        <input type="submit" value="Block/Unblock" style="font-size: 20px; background-color: crimson; border: none; color: black; padding: 10px 35px; border-radius: 10px;">
+        <!-- <input type="submit" value="Block/Unblock" style="font-size: 20px; background-color: crimson; border: none; color: black; padding: 10px 35px; border-radius: 10px;"> -->
 
-        &nbsp;
+        <!-- &nbsp; -->
         <!-- remove user -->
-        <input type="submit" value="Remove" style="font-size: 20px; background-color: red; border: none; color: black; padding: 10px 35px; border-radius: 10px;">
+        <!-- <input type="submit" value="Remove" style="font-size: 20px; background-color: red; border: none; color: black; padding: 10px 35px; border-radius: 10px;"> -->
 
     </div>
 </div>

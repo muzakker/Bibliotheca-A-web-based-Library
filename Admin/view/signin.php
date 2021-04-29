@@ -3,6 +3,7 @@
 	include('header.php');
 ?>
 
+
 <!-- nav bar -->
 <div id="nav_bar" style="background-color:#caefff; height: 100px; width: 100%; font-family: arial; display: flex; align-items: center; text-align: center;">
             
@@ -19,7 +20,7 @@
             <span style="margin-left:auto; margin-right:0;">
                 
                 <!-- home -->
-                <a href="../index.php" style="text-decoration: none;">
+                <a href="../../index.php" style="text-decoration: none;">
                     <i title="home" class="fas fa-home" style="font-size:35px; color:black;"></i>
                 </a>
                
@@ -28,18 +29,20 @@
             </span>            
 </div>
 
+<script type="text/javascript" src="../assets/js/signinCheck.js"></script>
+
 <!-- sign in form -->
-<div  style="background-image: url('../assets/library.jpg'); background-size: cover; background-position: center; height: 580px; width: 100%; display:block; text-align: center; align-items:center;">
+<div  style="background-image: url('../assets/images/library.jpg'); background-size: cover; background-position: center; height: 580px; width: 100%; display:block; text-align: center; align-items:center;">
     <hr>
     
-        <form method="post" action="../controller/signinCheck.php" style="position: absolute; margin: 20px; max-width: 300px; padding: 16px; background-color: white; display: inline-block; margin-left: -10%; margin-right: -10%; text-align: left;">
+        <form id="signinForm" name="signinForm" method="post" onsubmit="return validationSignin()" action="../controller/signinCheck.php" style="position: absolute; margin: 20px; max-width: 300px; padding: 16px; background-color: white; display: inline-block; margin-left: -10%; margin-right: -10%; text-align: left;">
             <h1>Login</h1>
 
             <b>Username</b>
-            <input type="text" placeholder="Enter Username" name="username" required style="width: 270px; padding: 15px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
+            <input type="text" placeholder="Enter Username" name="username" style="width: 270px; padding: 15px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
 
             <b>Password</b>
-            <input type="password" placeholder="Enter Password" name="password" required style="width: 270px; padding: 15px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
+            <input type="password" placeholder="Enter Password" name="password" style="width: 270px; padding: 15px; margin: 5px 0 22px 0; border: none; background: #f1f1f1;">
 
             <br>
             <input type="submit" name="submit" value="Sign in" style="background-color: #4CAF50; color: white; padding: 16px 20px; border: none; cursor: pointer; width: 100%; opacity: 0.9;">
@@ -47,7 +50,7 @@
             <br>
             &nbsp; &nbsp;<a href="signup.php">Not a User? Signup</a>
             &nbsp; &nbsp; &nbsp;
-            <a href="#">Forgot Password?</a>
+            <a href="forgotPass.php">Forgot Password?</a>
         </form>
     
 </div>

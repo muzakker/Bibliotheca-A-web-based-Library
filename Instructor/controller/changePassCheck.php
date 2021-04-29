@@ -1,6 +1,6 @@
 <?php
 
-	require_once('model/userModel.php');
+	require_once('../../model/userModel.php');
 	
 	if(isset($_POST['submit'])){
 
@@ -60,7 +60,7 @@
 
 				$status = updatePassword($newPass);
 				if($status){
-					header('location: profile.php');
+					header('location: ../view/profile.php');
 
 				}else{
 					echo "Update Error! Try Again...";

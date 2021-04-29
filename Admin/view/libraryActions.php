@@ -1,4 +1,8 @@
 <?php
+	if(isset($_COOKIE['status'])){
+?>
+
+<?php
 	$title = "Library Actions";
 	include('header.php');
 ?>
@@ -19,19 +23,19 @@
         <hr><br><br><br><br><br><br>
         
         <!-- issue books -->
-        <a href="#" style="text-decoration: none;">
+        <a href="issueBook.php" style="text-decoration: none;">
             <span style="font-size: 20px; background-color: #caefff; border: none; color: black; padding: 10px 10px; border-radius: 10px;"><b> Issue Books </b></span>
         </a>
 
         <br><br><br><br>
         <!-- penalty status -->
-        <a href="#" style="text-decoration: none;">
+        <a href="penaltyStatus.php" style="text-decoration: none;">
             <span style="font-size: 20px; background-color: #caefff; border: none; color: black; padding: 10px 10px; border-radius: 10px;"><b> Penalty Status </b></span>
         </a>
 
         <br><br><br><br>
         <!-- handle book requests -->
-        <a href="#" style="text-decoration: none;">
+        <a href="bookReq.php" style="text-decoration: none;">
             <span style="font-size: 20px; background-color: #caefff; border: none; color: black; padding: 10px 10px; border-radius: 10px;"><b> Handle Book Request </b></span>
         </a>
 
@@ -39,3 +43,9 @@
 </div>
 
 <?php include('footer.html')?>
+
+<?php
+	}else{
+		header('location: signin.php');
+	}
+?>

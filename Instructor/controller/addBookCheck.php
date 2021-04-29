@@ -1,6 +1,6 @@
 <?php
 
-	require_once('bookModel.php');
+	require_once('../../model/bookModel.php');
 
 	if(isset($_POST['submit'])){
 

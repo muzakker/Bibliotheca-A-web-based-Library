@@ -22,8 +22,25 @@
         </span>
         <hr><br><br><br>
 
-        <form method="POST" action="../controller/addBookCheck.php">
+        <script type="text/javascript" src="../assets/js/addBookCheck.js"></script>
+
+        <form id="addBookForm" method="POST" onsubmit="return validationAddBook()" action="../controller/addBookCheck.php" enctype="multipart/form-data">
             <table align="center">
+                <tr>
+                    <td>
+                        Book ID
+                    </td>
+                    <td>
+                        <input type="number" name="bookID" value="">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">
+                        <hr><br>
+                    </td>
+                </tr>
+
                 <tr>
                     <td>
                         Book Name
@@ -68,6 +85,32 @@
                     <td><input type="text" name="author" value=""></td>
                 </tr>
                 
+                <tr>
+                    <td colspan="3">
+                        <hr><br>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Published Date
+                    </td>
+                    <td><input type="number" name="dd" style="width:40px;" value=""> / <input type="number" name="mm" style="width:40px;" value="">	/ <input type="number" name="yyyy" style="width:60px;" value=""> <i>(dd/mm/yyyy)</i></td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">
+                        <hr><br>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Choose a Cover Photo
+                    </td>
+                    <td><input type="file" name="picture"></td>
+                </tr>
+
                 <tr>
                     <td colspan="3">
                         <hr><br>

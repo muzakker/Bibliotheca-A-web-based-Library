@@ -1,16 +1,32 @@
-<?php include('../controller/json_read.php'); ?>
+<?php
+	if(isset($_COOKIE['status'])){
+?>
+
+<?php 
+
+    require_once('../../model/userModel.php'); 
+    $username = $_COOKIE['username'];
+    $row = getUserByName($username);
+
+?>
 
 <!-- side panel -->
     <div id="side_panel" style="width: 300px; background-color:#caefff; font-family:Arial;" align="center">
-        <h2><?php echo $json[$_COOKIE["id"]]['username']?></h2> <!-- php code -->
+        <h2><?php echo $_COOKIE['username']?></h2>
         <a href="accSetting.php">
-            <img src="../assets/<?php echo $json[$_COOKIE["id"]]['fileName'];?>" height="150px;" width="150px" alt="Profile Photo" style="border-radius:50%">
+            <img src="../assets/images/<?php echo $row['filename'];?>" height="150px;" width="150px" alt="Profile Photo" style="border-radius:50%">
         </a>
         <br> <br> <br>
 
         <!-- Dashboard -->
         <a href="adminDashboard.php" style="text-decoration: none;">
             <span style="font-size:25px;">Dashboard</span>
+        </a>
+
+        <hr><br>
+        <!-- Explore -->
+        <a href="explore.php" style="text-decoration: none;">
+            <span style="font-size:25px">Explore</span>
         </a>
 
         <hr><br>
@@ -44,3 +60,9 @@
             <span style="font-size:25px">Create a Blog</span>
         </a>
     </div>
+    
+    <?php
+	}else{
+		header('location: signin.php');
+	}
+?>

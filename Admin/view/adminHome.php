@@ -5,6 +5,7 @@
 <?php
 	$title = "Admin Home";
 	include('header.php');
+    require_once('../../model/userModel.php');
 ?>
 <?php include('adminNav.php')?>
 
@@ -19,11 +20,14 @@
             Welcome to Bibliotheca
             <br>
             <!-- php code-->
-            <?php include('../controller/json_read.php');
-            echo $json[$_COOKIE["id"]]['name'];?>
+            <?php
+                $username = $_COOKIE['username'];
+                $row = getUserByName($username);
+                echo $row['fullname'];
+            ?>
         </span>
         <br><br><br>
-        <img src="../assets/library.jpg" alt="library" height="350px" width="600px">
+        <img src="../assets/images/library.jpg" alt="library" height="350px" width="600px">
     </div>
 </div>
     

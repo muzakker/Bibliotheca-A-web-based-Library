@@ -1,6 +1,11 @@
 <?php
+	if(isset($_COOKIE['status'])){
+?>
+
+<?php
 	$title = "Upgrade Users";
 	include('header.php');
+    require_once('../../model/userModel.php');
 ?>
 
 <?php include('adminNav.php')?>
@@ -18,12 +23,20 @@
         </span>
         <hr><br>
 
+        <?php
+            $fullname = $_GET['fullname'];
+            $row = getUserByFullName($fullname);
+        ?>
         <!-- form for type change -->
-        <form method="POST" action="../controller/upgradeUserCheck.php">
+        <form method="POST" action="../controller/upgradeUserCheck.php?username=<?=$row['username']?>">
             <table align="center">
                 <tr>
                     <td>
                         User Name
+                    </td>
+
+                    <td>
+                        <?=$row['username']?>
                     </td>
                 </tr>
                 
@@ -36,6 +49,10 @@
                 <tr>
                     <td>
                         Current User Type
+                    </td>
+
+                    <td>
+                        <?=$row['type']?>
                     </td>
                 </tr>
                 
@@ -51,7 +68,6 @@
                     </td>
                     <td>
                         <select name="usertype" id="usertype">
-                            <option value="" selected>not selected</option>
                             <option value="regular">Regular</option>
                             <option value="premium">Premium</option>
                         </select>
@@ -80,3 +96,8 @@
 </div>
 
 <?php include('footer.html')?>
+<?php
+	}else{
+		header('location: signin.php');
+	}
+?>

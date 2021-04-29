@@ -1,6 +1,6 @@
 <?php
 
-	require_once('model/buybooksModel.php');
+	require_once('../../model/buybooksModel.php');
 
 	if(isset($_POST['submit'])){
 
@@ -41,7 +41,7 @@
                 $status = insertBuyBooks($buybooks);
 
                 if($status){
-                    header('location: buybooks.php');
+                    header('location: ../view/buybooks.php');
 
                 }else{
                     echo "Database Error! Try again.";

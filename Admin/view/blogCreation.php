@@ -1,4 +1,8 @@
 <?php
+	if(isset($_COOKIE['status'])){
+?>
+
+<?php
 	$title = "Create Blog";
 	include('header.php');
 ?>
@@ -17,17 +21,22 @@
             <b>Write that ignites you...</b>
             <hr>
         </span>
-        <br>
+        <br><br><br><br><br>
         
         <!-- blogging area -->
-        <form action="../controller/blogSubmit.php" method="post">
-            <textarea id="w3review" name="w3review" rows="25" cols="160" >
-            </textarea>
-            <br>
-            <input type="submit" value="Post" style="font-size: 25px; background-color: #00a1e6; border-radius: 12px; border: none; color: white; padding: 8px 15px;">
+        <form  method="post" action="../controller/blogSubmit.php">
+            <textarea name="content" rows="8" cols="40"  maxlength="300" style="font-size: 30px;" placeholder="Write that's on your mind within 300 characters limit"></textarea>
+            <br><br>
+            <input type="submit" name="submit" value="Post" style="font-size: 25px;">
         </form>
 
     </div>
 </div>
     
 <?php include('footer.html')?>
+
+<?php		
+	}else{
+		header('location: signin.php');
+	}
+?>

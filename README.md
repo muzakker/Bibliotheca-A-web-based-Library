@@ -1,6 +1,6 @@
-# Bibliotheca: an online library management system with integrated learning facilities.
+# Bibliotheca: a web based library with integrated learning and blogging facilities.
 
-# Admin 
+# Admin
 MD MUZAKKER HOSSAIN
 
 # Regular User

@@ -1,11 +1,16 @@
-# Bibliotheca: a web based library with integrated learning and blogging facilities.
+## Bibliotheca: a web based library with integrated learning and blogging facilities.
 
-**Admin**           (MD MUZAKKER HOSSAIN)
 
-**Regular User**    (SHAH-UL-JASUN)
+**For feature list check [this](https://github.com/muzakker/Bibliotheca-A-web-based-Library/blob/main/Feature%20List.md)**
 
-**Premium User**    (JOBAIR HOSSAIN)
+**Admin**           
+- MD MUZAKKER HOSSAIN
 
-**INSTRUCTOR**      (ISHORJU AGNES BOTLERO)
+**Regular User**    
+- SHAH-UL-JASUN
 
-For feature list check [this](https://github.com/muzakker/Bibliotheca-A-web-based-Library/blob/main/Feature%20List.md)
+**Premium User**    
+- JOBAIR HOSSAIN
+
+**INSTRUCTOR**      
+- ISHORJU AGNES BOTLERO

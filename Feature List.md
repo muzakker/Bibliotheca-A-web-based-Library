@@ -1,4 +1,4 @@
-4 types of users: Admin, Regular User, Premium User, Instructor
+4 types of users: **Admin**, **Regular User**, **Premium User**, **Instructor**
 
 # Common Features
   - Can login to the system

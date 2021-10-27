@@ -7,13 +7,13 @@
 
 
 **Admin**
-- _MD MUZAKKER HOSSAIN_
+- [_MD MUZAKKER HOSSAIN_](https://github.com/muzakker)
 
 **Regular User**    
-- _SHAH-UL-JASUN_
+- [_SHAH-UL-JASUN_](https://github.com/jasun266)
 
 **Premium User**    
-- _JOBAIR HOSSAIN_
+- [_JOBAIR HOSSAIN_](https://github.com/jobairh)
 
 **INSTRUCTOR**      
-- _ISHORJU AGNES BOTLERO_
+- [_ISHORJU AGNES BOTLERO_](https://github.com/OishorjoAgnes)

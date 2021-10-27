@@ -5,7 +5,7 @@
   - Can change password or retrieve password
   - Can logout of the system
 
-#	Admin/System (@muzakker)
+#	Admin/System (muzakker)
   1.	Can Add users/instructors
   2.	Can verify users/instructors
   3.	Can block a user/instructor’s profile
@@ -26,7 +26,7 @@
   18.	Can handle book requests
   19.	Edit or view profile
 
-#	Regular User
+#	Regular User (shah-ul-jasun)
   1.	Can create an account
   2.	Can view their profile
   3.	Can edit their profile
@@ -43,7 +43,7 @@
   14.	Can create a wishlist or keep a book into cart*
   15.	Can make a book/journal request if unavailable
 
-#	Premium User
+#	Premium User (jobair)
   1.	Can create an account
   2.	Can view their profile
   3.	Can edit their profile
@@ -63,7 +63,7 @@
   17.	Can write a review for bought books/journals
   18.	Can add or follow a user as a friend*
 
-# Instructor
+# Instructor (ishorju)
   1.	Can create an account
   2.	Can view their profile
   3.	Can edit their profile

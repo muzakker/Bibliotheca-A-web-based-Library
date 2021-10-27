@@ -5,7 +5,7 @@
   - Can change password or retrieve password
   - Can logout of the system
 
-#	Admin/System
+#	Admin/System (@muzakker)
   1.	Can Add users/instructors
   2.	Can verify users/instructors
   3.	Can block a user/instructor’s profile
@@ -62,5 +62,22 @@
   16.	Can rate bought books/journals
   17.	Can write a review for bought books/journals
   18.	Can add or follow a user as a friend*
+
+# Instructor
+  1.	Can create an account
+  2.	Can view their profile
+  3.	Can edit their profile
+  4.	Can add a course
+  5.	Can see who enrolled in their course*
+  6.	Can post a blog
+  7.	Can view inventory
+  8.	Can search a book/journal by title or author
+  9.	Can sort books/journals by ratings, published date, bestseller
+  10.	Can create a wishlist or keep a book into cart*
+  11.	Can make a book/journal request if unavailable*
+  12.	Can borrow books for a certain period*
+  13.	May have penalty if the books are not returned in time
+  14.	Make payment using online banking*
+  15.	Can buy books or journals
 
 
